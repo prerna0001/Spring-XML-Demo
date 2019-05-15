@@ -13,8 +13,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext applicationContext1= new ClassPathXmlApplicationContext("bean.xml");
-        com.stackroute.domain.Movie movie1= (com.stackroute.domain.Movie) applicationContext1.getBean("movi");
+        ApplicationContext applicationContext1= new ClassPathXmlApplicationContext("bean.xml");// reference of application context and obj of ClassPathXmlApplicationContext
+        Movie movie1= (Movie) applicationContext1.getBean("movi");
         System.out.println(movie1);
     }
 }
