@@ -1,29 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="actor1" class="com.stackroute.domain.Actor">
-        <property name="name" value="Scarlett" />
-        <property name="gender" value="female" />
-        <property name="age" value="30" />
+    <!--    <bean id="actr" class="com.stackroute.domain.Actor">-->
+    <!--        <property name="name" value="Pikku"></property>-->
+    <!--        <property name="age" value="41"></property>-->
+    <!--        <property name="gender" value="F"></property>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="movi" class="com.stackroute.domain.Movie">-->
+    <!--        <property name="actor" ref="actr"></property>-->
+    <!--    </bean>-->
+
+    <!--    &lt;!&ndash; auto wire by constructor&ndash;&gt;-->
+    <!--    <bean id="movi" class="com.stackroute.domain.Movie" autowire="constructor">-->
+
+    <!--    </bean>-->
+    <!--    <bean id="actr" class="com.stackroute.domain.Actor">-->
+    <!--        <constructor-arg name="name" value="Pikku"></constructor-arg>-->
+    <!--        <constructor-arg name="age" value="41"></constructor-arg>-->
+    <!--        <constructor-arg name="gender" value="F"></constructor-arg>-->
+    <!--    </bean>-->
+
+
+    <!--    autowire byType-->
+    <bean id="movi" class="com.stackroute.domain.Movie" autowire="byType">
 
     </bean>
-
-    <bean id="actor2" class="com.stackroute.domain.Actor">
-        <property name="name" value="Tony" />
-        <property name="gender" value="male" />
-        <property name="age" value="40" />
-
+    <bean id="Actor" class="com.stackroute.domain.Actor">
+        <property name="name" value="Pikku"></property>
+        <property name="age" value="41"></property>
+        <property name="gender" value="F"></property>
     </bean>
 
-    <bean id="movie1" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="actor1" />
 
-    </bean>
+    <!--    &lt;!&ndash;autowire byName&ndash;&gt;-->
+    <!--    <bean id="movi" class="com.stackroute.domain.Movie" autowire="byName">-->
 
-    <bean id="movie2" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="actor2" />
-    </bean>
+    <!--    </bean>-->
+    <!--    <bean id="actor" class="com.stackroute.domain.Actor">-->
+    <!--        <property name="name" value="Pikku"></property>-->
+    <!--        <property name="age" value="41"></property>-->
+    <!--        <property name="gender" value="F"></property>-->
+    <!--    </bean>-->
 </beans>
