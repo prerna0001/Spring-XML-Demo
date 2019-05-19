@@ -1,16 +1,45 @@
 package com.stackroute.domain;
-public class Actor {
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
+
+public class Actor implements BeanNameAware, BeanFactoryAware
+{
+
     private String name;
     private int age;
-    private char gender;
-
-    public Actor() {
-    }
-
-    public Actor(String name, int age, char gender) {
+    public Actor(String name, int age, String gender) {
         this.name = name;
         this.age = age;
         this.gender = gender;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
+
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    private String gender;
+    public Actor(){}
+
+    public Actor(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 
     public String getName() {
@@ -29,20 +58,13 @@ public class Actor {
         this.age = age;
     }
 
-    public char getGender() {
-        return gender;
-    }
-
-    public void setGender(char gender) {
-        this.gender = gender;
+    @Override
+    public void setBeanName(String s) {
+        System.out.println("in BeanNameAware "+s);
     }
 
     @Override
-    public String toString() {
-        return "Actor{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", gender=" + gender +
-                '}';
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("In BeanFactoryAware "+beanFactory );
     }
 }
